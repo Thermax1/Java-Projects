@@ -6,7 +6,7 @@ class CircleArea { //Class could be public or private, that will be explored lat
 
         Scanner scan = new Scanner(System.in); //You are creating an instance of the class Scanner. We call it scan and you're saying it's a new Scanner that accepts input (System.in)
 
-        System.out.print("Input the radius: ");
+        System.out.print("Input the radiuss: ");
         
         int circle_radius = scan.nextInt(); //User input will go here. You're using the method nextInt(), which takes an integer
 
