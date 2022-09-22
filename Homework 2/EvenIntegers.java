@@ -9,7 +9,7 @@ class EvenIntegers {
         int sumValue = 0;
         boolean breakloop = true;
 
-        System.out.println("Enter integer: ");
+        System.out.print("Enter integer: ");
         intValue = scan.nextInt();
 
         if(intValue < 2) {
@@ -20,6 +20,18 @@ class EvenIntegers {
 
             if(intValue % 2 != 0) {
                 intValue = intValue -1;
+                sumValue = sumValue + intValue;
+                intValue = intValue -2;
+            }
+            
+            if (intValue % 2 == 0) {
+                sumValue = sumValue + intValue;
+                intValue = intValue - 2;
+            }
+            
+            if(intValue == 2) {
+                sumValue = sumValue + intValue;
+                System.out.println("Your even integer total is: " + sumValue);
             }
         }
     }
