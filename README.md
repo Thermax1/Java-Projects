@@ -1,5 +1,4 @@
-# Java Homework From School
+# Java Challenges and Homework
 
-- Just showing the homeworks I did over the semester and what they do. I'm no Java expert, but I appreciate all that I learned.
-
-- Each Homework Folder will have a .pdf file explaining the assignment
+- Repository for my school homework and me going over 100+ Java challenges to refresh my memory
+  - Has its own dedicated folder, sub-folders, and read-me's!
