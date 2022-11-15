@@ -15,3 +15,7 @@
 - **Exercise 1C: EvenOdd.java**
     - I learned about the modulus operator. Really useful for testing true or false as well using 0 and another number
     - I also learned I can print my method since it's just holding the return value!
+- **Exercise 2: NumberText.java**
+    - I learned about the .charAt() method for strings. An alternative to an array when I'm looping through indexes.
+    - Strings are objects.
+    - - I can convert between different data types as there are many methods to do so in Java
