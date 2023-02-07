@@ -1,4 +1,3 @@
 # Java Code
-- Repository for my Java answers on websites like Codewars
-- Helps me learn Java on by creating and doing
-- Repository for any Java Code from any class (pending)
+- This repository will have DSA lessons in Java. Will have its own folder.
+- This repository will contain any future code that's relevent as time goes on.
