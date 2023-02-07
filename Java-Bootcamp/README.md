@@ -1,8 +1,6 @@
-# Java Bootcamp Guide
+# Java Bootcamp Sections Explained
 
-## Sections Explained
-
-### Section 1 - Getting Started
+## Section 1 - Getting Started
 
 - **Java Concepts Learned**
 	- `class` contains all of the code
