@@ -12,6 +12,6 @@
 	- I can create a class
 	- I can print messages
 
-### Section 2 - Variables
+## Section 2 - Variables
 
 
