@@ -1,0 +1,156 @@
+driver.java (contains main)
+
+package attendance;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Scanner;
+
+public class Driver {
+
+   public static void outputHistogram(ArrayList<EmailSubStrings> list)
+   {
+       System.out.println("*************************************");
+       System.out.println("**********Histogram******************");
+       System.out.println("*************************************");
+       String previous="ab";
+       for(int j=0;j<list.size();j++){
+           if(previous.equals(list.get(j).getCompanyName())){
+               System.out.print("*");
+           }else{
+           System.out.print("\n"+list.get(j).getCompanyName()+"\t");
+           System.out.print("*");
+           }
+           previous=list.get(j).getCompanyName();
+       }
+       System.out.println("\n\n");
+   }
+  
+   public static void main(String[] args) {
+       Scanner reader;
+       boolean billGatePresent=false;
+       ArrayList<EmailSubStrings> list=new ArrayList<EmailSubStrings>();
+       try {
+           reader = new Scanner(new File("attendance.txt"));
+           while (reader.hasNext()){
+               String i = reader.nextLine();
+               Email tempEmail=new Email(i);
+               EmailSubStrings tempSub=new EmailSubStrings(tempEmail.parseCompanyName(),tempEmail.parseEmailName());
+               list.add(tempSub);
+           }
+           Collections.sort(list,new EmailComparator());
+          
+           for(int j=0;j<list.size();j++){
+               System.out.println(list.get(j).getCompanyName()+"\t"+list.get(j).getPersonName());
+               if(list.get(j).getPersonName().equalsIgnoreCase("bill.gates")){
+                   billGatePresent=true;
+               }
+           }
+          
+           outputHistogram(list);
+          
+           if(billGatePresent){
+               System.out.println("Bill Gates was present");
+           }else{
+               System.out.println("Bill Gates was not present");
+           }
+          
+       } catch (FileNotFoundException e) {
+           e.printStackTrace();
+       }
+   }
+
+}
+
+-------------
+
+Email.java
+
+package attendance;
+
+public class Email {
+   private String emailStr;
+  
+   Email() { }
+  
+   Email(String str)
+   { emailStr = str; }
+  
+   public String parseEmailName()
+   {
+       String name;
+   int pos = emailStr.indexOf('@');
+   name = emailStr.substring(0,pos);
+   return name;
+   }
+   public String parseCompanyName()
+   {
+       String company;
+       int pos = emailStr.indexOf('@');
+       int dot = emailStr.lastIndexOf('.');
+       company = emailStr.substring(pos+1, dot);
+       return company;
+   }
+   public String parseExtension()
+   {
+       String ext;
+       int dot = emailStr.lastIndexOf('.');
+       ext = emailStr.substring(dot+1,emailStr.length());
+       return ext;
+   }
+}
+
+-----------------------------------
+
+EmailSubstring.java
+
+package attendance;
+
+public class EmailSubStrings{
+   String companyName;
+   String person;
+  
+   public EmailSubStrings(String companyName,String person){
+       this.companyName=companyName;
+       this.person=person;
+   }
+  
+   public String getCompanyName(){
+       return companyName;
+   }
+  
+   public String getPersonName(){
+       return person;
+   }
+}
+--------------------------------
+
+EmailComparator.java
+
+package attendance;
+
+import java.util.Comparator;
+
+public class EmailComparator implements Comparator<EmailSubStrings>{
+
+   @Override
+   public int compare(EmailSubStrings e1, EmailSubStrings e2) {
+      
+       int compResult = e1.getCompanyName().compareTo(e2.getCompanyName());
+if (compResult != 0)
+{
+return compResult;
+}
+
+// Next by name
+int nameResult = e1.getPersonName().compareTo(e2.getPersonName());
+if (nameResult != 0)
+{
+return nameResult;
+}
+       return 0;
+   }
+
+}
