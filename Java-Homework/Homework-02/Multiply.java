@@ -1,6 +1,3 @@
-//multiply:  do not use infinite loop and break.  see solution posted
-
-
 import java.util.Scanner;
 import java.util.Random;
 
