@@ -11,20 +11,22 @@ class CorrectChange {
     int number = scan.nextInt();
     
     int change = 100 - number;
+    int original_change = change;
     int quarters = change / 25;
-    change = change % 25;
+    change %= 25;
     int dimes = change / 10;
+    change %= 10;
     int nickels = change / 5;
-    int pennies = change / 1;
+    int pennies = change % 5;
 
     if(number >= 0 && number <= 100) //If true, print out program input as homework intended.
     {
-      System.out.println("Your change of " + change + " cents is given as: ");
+      System.out.println("Your change of " + original_change + " cents is given as: ");
       change = change % quarters;
-      System.out.println(change + " Quarters.");
-      System.out.println(change + " Dimes.");
-      System.out.println(change + " Nickels.");
-      System.out.println(change + " Pennies.");
+      System.out.println(quarters + " Quarters.");
+      System.out.println(dimes + " Dimes.");
+      System.out.println(nickels + " Nickels.");
+      System.out.println(pennies + " Pennies.");
     }
     else //Error message available if someone doesn't follow the range listed in the program
     {
