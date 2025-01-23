@@ -1,0 +1,49 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "NextLineTrap",
+            "request": "launch",
+            "mainClass": "NextLineTrap",
+            "projectName": "Section 4 - Variables_5bbc70a5"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Debugging",
+            "request": "launch",
+            "mainClass": "Debugging",
+            "projectName": "Section 4 - Variables_5bbc70a5"
+        },
+        {
+            "type": "java",
+            "name": "Survey",
+            "request": "launch",
+            "mainClass": "Survey",
+            "projectName": "Section 4 - Variables_5bbc70a5"
+        },
+        {
+            "type": "java",
+            "name": "TypeConversion",
+            "request": "launch",
+            "mainClass": "TypeConversion",
+            "projectName": "Section 4 - Variables_5bbc70a5"
+        },
+        {
+            "type": "java",
+            "name": "WholeNumbers",
+            "request": "launch",
+            "mainClass": "WholeNumbers",
+            "projectName": "Section 4 - Variables_5bbc70a5"
+        }
+    ]
+}
