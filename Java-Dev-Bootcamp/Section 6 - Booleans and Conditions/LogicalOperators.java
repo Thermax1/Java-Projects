@@ -46,11 +46,22 @@ public class LogicalOperators {
         boolean hasGoodPerformance = true;
         boolean isLongTermEmployee = false;
 
+        if(hasGoodPerformance || isLongTermEmployee) {
+            System.out.println("The user is eligible for a promotion.");
+        } else {
+            System.out.println("The user is not eligible for a promotion.");
+        }
         // good performance or is a long term employee: System.out.println("The user is eligible for a promotion.");
         // otherwise: System.out.println("The user is not eligible for a promotion.");
 
         int userAge = 17;
         boolean isParentPresent = true;
+
+        if(userAge >= 18 || isParentPresent) {
+            System.out.println("You can enter the value.");
+        } else {
+            System.out.println("You cannot enter the value");
+        }
 
         // at least 18 or if parent is present: System.out.println("You can enter the venue.");
         // otherwise: System.out.println("You cannot enter the venue.");
@@ -59,6 +70,11 @@ public class LogicalOperators {
         int memberAge = 16;
         boolean hasMembership = false;
 
+        if(memberAge >= 18 || hasMembership) {
+            System.out.println("The user can access the service");
+        } else {
+            System.out.println("The user cannot access the service.");
+        }
         // at least 18 or has a membership: System.out.println("The user can access the service.");
         // otherwise: System.out.println("The user cannot access the service.");
 
@@ -69,6 +85,11 @@ public class LogicalOperators {
 
         boolean cashOrCredit = option.equals("cash") || option.equals("credit");
 
+        if(!cashOrCredit){
+            System.out.println("Please choose another payment option");
+        } else {
+            System.out.println("Sold. Pleasure doing business with you!");
+        }
         // if payment option is NOT cash or credit: System.out.println("Please choose another payment option");
         // otherwise: System.out.println("Sold. Pleasure doing business with you!");
 
@@ -76,12 +97,22 @@ public class LogicalOperators {
 
         boolean isVowel = (letter == 'A' || letter == 'E' || letter == 'I' || letter == 'O' || letter == 'U');
 
+        if(!isVowel){
+            System.out.println("The letter '" + letter + "' is a consonant");
+        } else{
+            System.out.println("The letter '" + letter + "' is a vowel");
+        }
         // if letter is NOT a vowel: System.out.println("The letter " + letter + " is a consonant");
         // otherwise: System.out.println("The letter " + letter + " is a vowel");
 
         String move = "stay";
         boolean isHitOrStay = move.equals("hit") || move.equals("stay");
 
+        if(!isHitOrStay){
+            System.out.println("Please choose a valid move.");
+        } else{
+            System.out.println("You win 10 bucks");
+        }
         // if move is NOT hit or stay: System.out.println("Please choose a valid move");
         // otherwise: System.out.println("You win 10 bucks!");
 
