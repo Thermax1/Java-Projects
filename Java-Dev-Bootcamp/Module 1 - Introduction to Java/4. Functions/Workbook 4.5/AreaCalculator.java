@@ -17,8 +17,7 @@ public class AreaCalculator {
 
     }
 
-    //Task 1 - Write a function that calculates the area of a square. 
-
+    //Task 1 - Write a function that calculates the area of a square.
 
     /**
      * Function name: areaSquare - returns the area of a square.
@@ -31,12 +30,15 @@ public class AreaCalculator {
      */
     public static double areaSquare(double side) {
 
-        return 0;
+        if(side < 0){
+            System.out.println("Error: Impossible");
+            System.exit(0);
+        }
+        return side * side;
     }
 
 
     //Task 2 - Write a function that calculates the area of a rectangle. 
-
 
     /**
      * Function name: areaRectangle – returns the area of a rectangle.
@@ -49,8 +51,11 @@ public class AreaCalculator {
      *  2. Calculates the area of the rectangle. A = length * width
      */
     public static double areaRectangle(double length, double width) {
-
-        return 0;  
+        if(length < 0 || width < 0){
+            System.out.println("Error: Impossible");
+            System.exit(0);
+        }
+        return length * width;
     } 
 
     //Task 3 - Write a function that calculates the area of a triangle. 
