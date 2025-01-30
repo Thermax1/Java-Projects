@@ -9,11 +9,14 @@ public class RockPaperScissors {
         System.out.println("When I say 'shoot', Choose: rock, paper, or scissors.\n");
         System.out.println("Are you ready? Write 'yes' if you are.");
 
-    //Task 1: See if the user wants to play. 
+    //Task 1: See if the user wants to play.
+
+        String readyToPlay = scan.nextLine().toLowerCase();
 
     /*Task 2: Set up the game
     
-
+        
+        
        • if the answer is yes: 
              – print: Great!
              – print: rock - paper - scissors, shoot!
@@ -25,7 +28,22 @@ public class RockPaperScissors {
        • else:
              – print: Darn, some other time...!        
     */
-              
+        
+        if(readyToPlay.equals("yes")){
+            System.out.println("Great!");
+            System.out.println("rock - paper - scissors, shoot!");
+            String myHand = scan.nextLine().toLowerCase();
+            if(legalHand(myHand)){
+                System.out.println("You entered an invalid choice. Play again");
+                System.exit(0);
+            }
+            String computerHand = computerChoice();
+            String finalResult = result(myHand, computerHand);
+            printResult(myHand, computerHand, finalResult);
+        } else {
+            System.out.println("Enter yes to play!");
+            System.exit(0);
+        }
 
         scan.close();
     }
@@ -33,6 +51,23 @@ public class RockPaperScissors {
 
     //Task 3  – Write a function where the computer picks a random choice.
 
+    public static String computerChoice() {
+        int numChoice = (int)(Math.random() * 3);
+        switch (numChoice) {
+            case 0: return "rock";
+            case 1: return "paper";
+            case 2: return "scissors";
+            default: return "Invalid range/choice";
+        }
+    }
+
+    public static boolean legalHand(String myHand) {
+        boolean result = false;
+        if(!myHand.equals("rock") && !myHand.equals("paper") && !myHand.equals("scissors")) {
+            result = true;
+        }
+        return result;
+    }
     /**
      * Function name: computerChoice - picks randomly between rock paper and scissors
      * @return a choice (String).
@@ -80,9 +115,24 @@ public class RockPaperScissors {
     public static String result(String yourChoice, String computerChoice) {
         String result = "";
 
+        if(yourChoice.equals(computerChoice)) {
+            result = "It's a tie!";
+        } else if((yourChoice.equals("rock") && computerChoice.equals("scissors")) || (yourChoice.equals("paper") && computerChoice.equals("rock")) || (yourChoice.equals("scissors") && computerChoice.equals("paper"))) {
+           result = "You win!";
+        } else if((yourChoice.equals("paper") && computerChoice.equals("scissors")) || (yourChoice.equals("scissors") && computerChoice.equals("rock")) || (yourChoice.equals("rock") && computerChoice.equals("paper"))) {
+            result = "You lost!";
+        } else {
+            System.out.println("Invalid choice!");
+            System.exit(0);
+        }
         return result;
-      }
- 
+    }
+
+    public static void printResult(String yourChoice, String computerChoice, String result){
+        System.out.println("You chose: " + yourChoice);
+        System.out.println("The computer chose: " + computerChoice);
+        System.out.println("The final result: " + result);
+    }
      //Task 5  – Write a function that prints your choice, the computer's, and the result.
 
     /**
