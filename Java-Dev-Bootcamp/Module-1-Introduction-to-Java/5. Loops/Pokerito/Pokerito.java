@@ -4,6 +4,7 @@ public class Pokerito {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        System.out.println(randomCard());
         /*Task 2: Explain the rules
 
         >>Let's play Pokerito. Type anything when you're ready.
@@ -71,4 +72,7 @@ public class Pokerito {
      *   2. Returns a card that matches the random number (get the String values from cards.text).   
      */
 
+     public static int randomCard(){
+        return (int)(Math.random() * 13) + 1;
+     }
 }
