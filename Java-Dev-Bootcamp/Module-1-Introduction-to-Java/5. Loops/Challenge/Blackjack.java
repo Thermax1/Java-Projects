@@ -23,11 +23,12 @@ public class Blackjack {
         int dealerTotal = dealerCard + dealerCard2;
         
         if(userTotal > 21){
+            System.out.println("Player total is: " + userTotal);
             System.out.println("Bust! Player loses!");
             System.exit(0);
         }
 
-        System.out.println("\nYou get a \n" + userCard + "\nand a\n" + userCard2);
+        System.out.println("\nYou get a \n" + userCard + "\n" + cardString(userCard) + "\nand a\n" + userCard2 + "\n" + cardString(userCard2));
         //Task 5 – Print the sum of your hand value.
         //       – print: your total is: <hand value>
 
@@ -36,7 +37,7 @@ public class Blackjack {
         //       – Print: The dealer shows \n" + <first card> + "\nand has a card facing down \n" + <facedown card>
         //       – Print: \nThe dealer's total is hidden
 
-       System.out.println("The dealer shows \n" + dealerCard + "\nand has a card facing down\n" + faceDown());
+       System.out.println("The dealer shows \n" + dealerCard + "\n" + cardString(dealerCard) + "\nand has a card facing down\n" + faceDown());
 
         //Task 8 – Keep asking the player to hit or stay (while loop).
         //       1. Every time the player hits
@@ -48,14 +49,15 @@ public class Blackjack {
         //       2. Once the player stays, break the loop. 
 
         boolean userBreak = true;
-        boolean dealerBreak = true;
+
+        System.out.println("Your current total is: " + userTotal);
         while(userBreak){
 
             String userDecision = hitOrStay();
             if(userDecision.equals("hit")){
                 int newUserCard = drawRandomCard();
                 userTotal += newUserCard;
-                System.out.println("\nYou get a: " + newUserCard);
+                System.out.println("\nYou get a: " + newUserCard + "\n" + cardString(newUserCard));
                 System.out.println("Your new total is: " + userTotal);
                 if(userTotal > 21){
                     System.out.println("Bust! Player loses. Try again!");
@@ -67,22 +69,33 @@ public class Blackjack {
                 userBreak = false;
             }
         }
+
+        System.out.println("\nDealer's turn");
+        System.out.println("\nThe dealer's cards are: " + dealerCard + "\n" + cardString(dealerCard) + "\n and a " + dealerCard2 + "\n" + cardString(dealerCard2));
+
+        System.out.println("Dealer's current total: " + dealerTotal);
         while(dealerTotal < 17){
-            
-            if(userDecision.equals("hit")){
-                int newUserCard = drawRandomCard();
-                userTotal += newUserCard;
-                System.out.println("\nYou get a: " + newUserCard);
-                System.out.println("Your new total is: " + userTotal);
-                if(userTotal > 21){
-                    System.out.println("Bust! Player loses. Try again!");
-                    System.exit(0);
-                }
+            if(dealerTotal > 21){
+                System.out.println("Dealer's total is: " + dealerTotal);
+                System.out.println("BUST! Dealer loses!");
+                System.exit(0);
             }
-            else if(userDecision.equals("stay")){
-                loopBreak = false;
-            }
+            System.out.println("Dealer's total: " + dealerTotal);
+            int newDealerCard = drawRandomCard();
+            System.out.println("Dealer gets a: " + newDealerCard);
+            System.out.println("\n" + cardString(newDealerCard));
+            dealerTotal += newDealerCard;
+            System.out.println("New Dealer total: " + dealerTotal);
         }
+
+        if(userTotal > dealerTotal){
+            System.out.println("Payer wins!");
+        }
+        else{
+            System.out.println("Dealer wins!");
+        }
+
+        
         //For tasks 9 to 13, see the article: Blackjack Part II. 
          scan.close();
 
