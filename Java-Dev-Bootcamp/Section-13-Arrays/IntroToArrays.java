@@ -3,6 +3,6 @@ public class IntroToArrays {
 
         String[] kingdoms = {"Mercia", "Wessex", "Northumbria", "East Anglia"};
 
-        
+        System.out.println(kingdoms[0]);
     }
 }

@@ -1,27 +1,39 @@
+import java.lang.Math;
 public class HighScore {
     public static void main(String[] args) {
-        int[] scores = {randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber()};
         
         int highScore = 0;
-        System.out.print("Here are the scores: ");    
-        for (int i = 0; i < scores.length; i++) {
-            System.out.print(scores[i] + " ");
-            if (scores[i] > highScore) {
-                highScore = scores[i];
-            }
-        }
+        int currentIndex = 0;
         
-       
-        System.out.println("\n\nThe highest score is: " + highScore + ". Impressive!");
-        
-        // TODO : See instructions on Learn the Part (Workbook 6.6)
-        System.out.println("It's the gentleman in seat: <index>. Give that man a cookie!");
+        // Instructions for this workbook are on Learn the Part (Workbook 6.5).
 
+        System.out.print("\nHere are the scores: ");
+
+        int scores[] = {randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber(), randomNumber()};
+
+        for(int i = 0; i < scores.length;i++) {
+            if(scores[i] > highScore) {
+                highScore = scores[i];
+                currentIndex = i;
+            }
+            System.out.print(scores[i] + " ");
+        }
+
+        System.out.println("\n\nThe highest score is: " + highScore + ". Impressive!");
+
+        System.out.println("It's the gentleman in seat " + currentIndex + "! Give that man a cookie!");
     }
     
+
+     /**
+     *  Function name - randomNumber
+     *  @return (int)
+     *
+     *  Inside the function
+     *    - returns a random number between 0 to 49999
+     *
+     */
     public static int randomNumber() {
-        double randomDouble = Math.random() * 50000;
-        int randomInt = (int)randomDouble;
-        return randomInt;
+        return (int)(Math.random()* 50_000);
     }
 }

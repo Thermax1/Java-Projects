@@ -5,8 +5,17 @@ public class RingAnnouncer {
         int losses = 0;
         
         // Instructions for this workbook are on Learn the Part (Workbook 6.7).
+
+        for(int i = 0;i < record.length;i++){
+            if(record[i].equals("WIN")){
+                wins += 1;
+            }
+            else{
+                losses += 1;
+            }
+        }
         
-        System.out.println("\nWith a professional record of <wins> Wins and <losses> losses.");
+        System.out.println("\nWith a professional record of " + wins + " wins and " + losses + " losses.");
         System.out.println("He is the pride of oracle: Java Fury!");
 
 

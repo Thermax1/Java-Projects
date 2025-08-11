@@ -10,13 +10,23 @@ public class Grocer {
         String[] store = {"apples", "bananas", "candy", "chocolate", "coffee", "tea"};
         System.out.println("\nWelcome to Java Grocers. ");
         System.out.println("What can I help you find?\n");
+
+        String customerChoice = scan.nextLine();
+        int itemNumber = store.length;
         
         for (int i = 0; i < store.length; i++) {
             
             // Task 2 here
-            System.out.println("\nWe have that in aisle: <index>");
+            if(store[i].equals(customerChoice)){
+                itemNumber = i;
+            }
+        }
 
-
+        if(itemNumber < store.length){
+        System.out.println("\nWe have that in aisle: " + itemNumber);
+        }
+        else{
+            System.out.println("I'm sorry, that item is not in our store.");
         }
         
         scan.close();
