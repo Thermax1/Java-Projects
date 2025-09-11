@@ -7,12 +7,14 @@ public class Javapedia {
         System.out.println("How many historical figures will you register?");
         //Task 1 – Ask the user: how many historical figures will you register?
         //       – Store the value.
+        int numHistoricalFigures = scan.nextInt();
         
-        //Task 2 – Create a 2D array with a variable number of rows, and 3 values per row.         
+        //Task 2 – Create a 2D array with a variable number of rows, and 3 values per row.
+        String myHistoricalArray[][] = new String[numHistoricalFigures][3];       
          
         //Watch out for the nextLine() pitfall. 
-        /* Task 3 
-        for (____) {
+        // Task 3
+        for (int i = 0; i < myHistorical) {
 
             System.out.println("\n\tFigure " + (i+1)); 
 
@@ -29,7 +31,7 @@ public class Javapedia {
 
         }
         
-        */
+        
         System.out.println("These are the values you stored:"); 
         //Task 4: call print2DArray. 
 
